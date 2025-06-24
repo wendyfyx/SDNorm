@@ -7,21 +7,15 @@ SDNorm is a supervised method for reducing bundle variability by normalizing str
   <div>
     <img
     src="test_data/AF_L_orig.png"
-    width="200">
+    width="300">
   </div>
-  <figcaption>AF_L before SDNorm</figcaption>
-  <div>
-    <img
-    src="test_data/AF_L_espd8.png"
-    width="200">
-  </div>
-  <figcaption>AF_L after SDNorm with eSPD=8</figcaption>
+  <figcaption>AF_L before SDNorm (2900 streamlines)</figcaption>
   <div>
   <img
     src="test_data/AF_L_espd12.png"
-    width="200">
+    width="300">
   </div>
-  <figcaption>AF_L after SDNorm with eSPD=12</figcaption>
+  <figcaption>AF_L after SDNorm with eSPD=12 (1112 streamlines)</figcaption>
 </div>
 
 

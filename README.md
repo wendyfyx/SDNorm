@@ -1,23 +1,10 @@
 # Streamline Density Normalization (SDNorm)
 
 ## Overview
-SDNorm is a supervised method for reducing bundle variability by normalizing streamline density.
-
-<div style="display: flex">
-  <div>
-    <img
-    src="test_data/AF_L_orig.png"
-    width="300">
-  </div>
-  <figcaption>AF_L before SDNorm (2900 streamlines)</figcaption>
-  <div>
-  <img
-    src="test_data/AF_L_espd12.png"
-    width="300">
-  </div>
-  <figcaption>AF_L after SDNorm with eSPD=12 (1112 streamlines)</figcaption>
-</div>
-
+SDNorm is a supervised method for reducing bundle variability by normalizing streamline density. It computes streamline weights to match an individual bundle to a template density map using ridge regression, followed by a pruning procedure to reach a target effective Streamline Point Density (eSPD). We've shown that SDNorm can
+- Reduce variability in streamline density
+- Improve consistency in along-tract microstructure profiles
+- Provide useful metrics for automated bundle quality contro
 
 ## Prerequisites
 - Python (version 3.9+)
@@ -53,8 +40,27 @@ poetry run sdnorm_prune -i test_data/AF_L.trk \
 ```
 but make sure you save the streamline weights when you first run SDNorm!
 
-To create your own template maps, you can create some density maps from extract bundles using `dipy.tracking.utils.density_map`. Then run this command to generate the template map
+Here's the sample AF_L bundle before running SDNorm with 2900 streamlines,
+<div>
+  <img
+  src="test_data/AF_L_orig.png"
+  width="300">
+</div>
+and here's the same bundle after running SDNorm with espd=12, and it has 1112 streamlines.
+<div>
+<img
+  src="test_data/AF_L_espd12.png"
+  width="300">
+</div>
+
+
+
+## Creating Custom Template Maps
+To create your own template maps, you can create density maps from existing bundles using `dipy.tracking.utils.density_map`. Then run this command to generate the template map
 ```
 poetry run sdnorm_template -i your-folder/sub-*_AF_L.nii.gz \
                            -o AF_L_template.nii.gz \
 ```
+
+## Citing SDNorm
+TODO

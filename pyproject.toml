@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "SDNorm"
+version = "0.1.0"
+description = "Streamline Density Normalization"
+authors = ["Yixue Feng"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "sdnorm" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.25.0"
+pandas = "^2.1.0"
+matplotlib = "^3.7.0"
+dipy = "^1.7.0"
+fury = "^0.9.0"
+scipy = "^1.11.0"
+nibabel = "^5.1.0"
+antspyx = "^0.5.4"
+cvxpy = "^1.6.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[tool.poetry.scripts]
+sdnorm = "sdnorm.scripts.run_sdnorm:main"
+sdnorm_template = "sdnorm.scripts.create_density_template:main"
+sdnorm_prune = "sdnorm.scripts.sdnorm_prune:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

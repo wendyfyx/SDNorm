@@ -1,0 +1,14 @@
+{
+  "lsq_rmse": 9.706133971180263e-06,
+  "lsq_mae": 5.4141791313577185e-06,
+  "lsq_r2": 0.7368530158033366,
+  "residual_norm": 9.980222717338962e-06,
+  "weight_norm": 4404.078602957567,
+  "reg_scale": 1.6317182336411988e-08,
+  "global_scale": 2.459647461010634e-06,
+  "espd_init": 21.767164330412335,
+  "espd_pruned": 8.135951910215134,
+  "nlines_init": 2900,
+  "nlines_pruned": 258,
+  "n_prune_iterations": 18
+}

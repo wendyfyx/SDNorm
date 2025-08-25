@@ -1,10 +1,10 @@
 # Streamline Density Normalization (SDNorm)
 
 ## Overview
-SDNorm is a supervised method for reducing bundle variability by normalizing streamline density. It computes streamline weights to match an individual bundle to a template density map using ridge regression, followed by a pruning procedure to reach a target effective Streamline Point Density (eSPD). We've shown that SDNorm can
+SDNorm is a supervised method for reducing bundle variability by normalizing streamline density ([preprint](https://doi.org/10.1101/2025.08.18.670965), [twitter thread](https://x.com/wendyfyx/status/1960067687796863252)). It computes streamline weights to match an individual bundle to a template density map using ridge regression, followed by a pruning procedure to reach a target effective Streamline Point Density (eSPD). We've shown that SDNorm can
 - Reduce variability in streamline density
 - Improve consistency in along-tract microstructure profiles
-- Provide useful metrics for automated bundle quality contro
+- Provide useful metrics for automated bundle quality control
 
 ## Prerequisites
 - Python (version 3.9+)
@@ -63,4 +63,17 @@ poetry run sdnorm_template -i your-folder/sub-*_AF_L.nii.gz \
 ```
 
 ## Citing SDNorm
-TODO
+
+@misc{feng_streamline_2025,  
+	title = {Streamline {Density} {Normalization}: {A} {Robust} {Approach} to {Mitigate} {Bundle} {Variability} in {Multi}-{Site} {Diffusion} {MRI}},  
+	copyright = {http://creativecommons.org/licenses/by-nc-nd/4.0/},  
+	shorttitle = {Streamline {Density} {Normalization}},  
+	url = {http://biorxiv.org/lookup/doi/10.1101/2025.08.18.670965},  
+	doi = {10.1101/2025.08.18.670965},  
+	language = {en},  
+	urldate = {2025-08-25},  
+	author = {Feng, Yixue and Shuai, Yuhan and Villalón-Reina, Julio E. and Chandio, Bramsh Q. and Thomopoulos, Sophia I. and Nir, Talia M. and Jahanshad, Neda and Thompson, Paul M.},  
+	month = aug,  
+	year = {2025},  
+}
+

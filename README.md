@@ -63,17 +63,17 @@ poetry run sdnorm_template -i your-folder/sub-*_AF_L.nii.gz \
 ```
 
 ## Citing SDNorm
-
-@misc{feng_streamline_2025,  
-	title = {Streamline {Density} {Normalization}: {A} {Robust} {Approach} to {Mitigate} {Bundle} {Variability} in {Multi}-{Site} {Diffusion} {MRI}},  
-	copyright = {http://creativecommons.org/licenses/by-nc-nd/4.0/},  
-	shorttitle = {Streamline {Density} {Normalization}},  
-	url = {http://biorxiv.org/lookup/doi/10.1101/2025.08.18.670965},  
-	doi = {10.1101/2025.08.18.670965},  
-	language = {en},  
-	urldate = {2025-08-25},  
-	author = {Feng, Yixue and Shuai, Yuhan and Villalón-Reina, Julio E. and Chandio, Bramsh Q. and Thomopoulos, Sophia I. and Nir, Talia M. and Jahanshad, Neda and Thompson, Paul M.},  
-	month = aug,  
-	year = {2025},  
+```
+@misc{feng_streamline_2025,
+	title = {Streamline {Density} {Normalization}: {A} {Robust} {Approach} to {Mitigate} {Bundle} {Variability} in {Multi}-{Site} {Diffusion} {MRI}},
+	copyright = {http://creativecommons.org/licenses/by-nc-nd/4.0/},
+	shorttitle = {Streamline {Density} {Normalization}},
+	url = {http://biorxiv.org/lookup/doi/10.1101/2025.08.18.670965},
+	doi = {10.1101/2025.08.18.670965},
+	language = {en},
+	urldate = {2025-08-25},
+	author = {Feng, Yixue and Shuai, Yuhan and Villalón-Reina, Julio E. and Chandio, Bramsh Q. and Thomopoulos, Sophia I. and Nir, Talia M. and Jahanshad, Neda and Thompson, Paul M.},
+	month = aug,
+	year = {2025},
 }
-
+```

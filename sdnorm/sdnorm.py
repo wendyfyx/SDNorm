@@ -78,7 +78,7 @@ def sdnorm_voxel_streamline_matrix(streamlines, ref_img, ref_affine):
     n_streamlines = len(streamlines)
     A = lil_matrix((n_voxels, n_streamlines), dtype=np.float32)
     
-    for i, sl in enumerate(tqdm.tqdm(streamlines)):
+    for i, sl in enumerate(tqdm.tqdm(streamlines, desc="Create Voxel-Streamline Matrix")):
         sl_map = density_map([sl], ref_affine, ref_img.shape) > 0
         intersect_voxels = np.logical_and(mask, sl_map)
         if not np.any(intersect_voxels):
@@ -124,7 +124,7 @@ def sdnorm_optimize(A, f, reg_lambda=0.1, verbose=False):
 
 def sdnorm_prune(streamlines, weights, ref_affine, ref_img, ref_voxsize, 
                  target_espd=8, min_weight=2e-3, 
-                 max_iter=20, espd_tol=1e-3, lines_tol=5):
+                 max_iter=20, espd_tol=0.1, lines_tol=5):
     '''
         Prune streamlines based on SDNorm weights until it reaches target eSPD
         
@@ -143,22 +143,25 @@ def sdnorm_prune(streamlines, weights, ref_affine, ref_img, ref_voxsize,
     sl_pruned = streamlines[idx]
     indices = np.arange(len(streamlines))[idx]
     espd = get_espd(sl_pruned, ref_affine, ref_img, ref_voxsize)
-    logging.info(f"Iter {i+1} (w>{min_weight:.3f}): pruned {len(sl_pruned)}/{len(streamlines)} streamlines, current eSPD is {espd:.3f}")
+    logging.info(f"Iter {i+1} (w>{min_weight:.3f}): kept {len(sl_pruned)}/{len(streamlines)} streamlines, current eSPD is {espd:.3f}")
     if len(sl_pruned) < len(streamlines):
         i += 1
     
-    # If espd is higher than target, continuing pruning
+    # If espd is higher than target and smaller than last iteration, continuing pruning
     while espd - target_espd > espd_tol:
         n_lines_init = len(sl_pruned)
         n_sl = get_nlines_from_espd(sl_pruned, target_espd, ref_affine, ref_img, ref_voxsize)
         if len(sl_pruned)-n_sl < lines_tol or (i+1) >= max_iter:
             break
         idx = np.argsort(weights_pruned)[-n_sl:][::-1]
+        espd_old = espd
+        espd = get_espd(sl_pruned[idx], ref_affine, ref_img, ref_voxsize)
+        if espd > espd_old:
+            break
         sl_pruned = sl_pruned[idx]
         weights_pruned = weights_pruned[idx]
         indices = indices[idx]
-        espd = get_espd(sl_pruned, ref_affine, ref_img, ref_voxsize)
-        logging.info(f"Iter {i+1}: pruned {len(sl_pruned)}/{n_lines_init} streamlines, current eSPD is {espd:.3f}")
+        logging.info(f"Iter {i+1}: kept {len(sl_pruned)}/{n_lines_init} streamlines, current eSPD is {espd:.3f}")
         i += 1
     
     report = {}

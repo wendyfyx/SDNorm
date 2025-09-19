@@ -1,10 +1,12 @@
 [tool.poetry]
 name = "SDNorm"
-version = "0.1.0"
+version = "0.1.1"
 description = "Streamline Density Normalization"
 authors = ["Yixue Feng"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/wendyfyx/SDNorm"
+repository = "https://github.com/wendyfyx/SDNorm"
 packages = [{ include = "sdnorm" }]
 
 [tool.poetry.dependencies]

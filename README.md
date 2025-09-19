@@ -1,7 +1,10 @@
 # Streamline Density Normalization (SDNorm)
 
 ## Overview
-SDNorm ([preprint](https://www.biorxiv.org/content/10.1101/2025.08.18.670965v1)) is a supervised method for reducing bundle variability by normalizing streamline density.
+SDNorm ([preprint](https://www.biorxiv.org/content/10.1101/2025.08.18.670965v1)) is a supervised method for reducing bundle variability by normalizing streamline density. We show that SDNorm can 
+- Reduce variability in streamline density
+- Improve consistency in along-tract microstructure profiles
+- Provide useful metrics for automated bundle quality control
 
 ## Installation
 ```
@@ -73,5 +76,4 @@ sdnorm_template -i your-folder/sub-*_AF_L.nii.gz \
 	month = aug,
 	year = {2025},
 }
-
 ```
